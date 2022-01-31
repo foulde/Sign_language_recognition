@@ -165,31 +165,6 @@ def testing(model):
                 
                 
                 
-                
-                
-                # print(results.landmarks)
-                
-                # Draw landmarks
-                # draw_styled_landmarks(image, results)
-                
-                # extract_keypoints(results)
-                # sequence = np.append(sequence , extract_keypoints(results),axis=0)
-                # extract_keypoints(results)
-                # sequence.append(extract_keypoints(results))s
-                
-                # pose = []
-                # for res in results.pose_landmarks.landmark:
-                #     test = np.array([res.x, res.y, res.z])
-                #     pose.append(test)
-                # print (pose)
-                # exit(0)
-                # count+=1
-                # Show to screen
-                # cv2.imshow('OpenCV Feed', image)
-
-                # # Break gracefully
-                # if cv2.waitKey(10) & 0xFF == ord('q'):
-                #     break
                 if cv2.waitKey(10) & 0xFF == ord('q'):
                     cv2.destroyAllWindows()
                     break
