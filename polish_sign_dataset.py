@@ -73,55 +73,9 @@ class Polish_dataset(Dataset):
         self.data = arr 
 
 
-        # exit(0)
         
-        
-        # # for gloss in 
-        # with open(index_file_path, 'r') as f:
-        #     content = json.load(f)
-
-        # # create label encoder
-        # glosses = sorted([gloss_entry['gloss'] for gloss_entry in content])
-
-        # self.label_encoder.fit(glosses)
-        # self.onehot_encoder.fit(self.label_encoder.transform(self.label_encoder.classes_).reshape(-1, 1))
-
-        # if self.test_index_file is not None:
-        #     print('Trained on {}, tested on {}'.format(index_file_path, self.test_index_file))
-        #     with open(self.test_index_file, 'r') as f:
-        #         content = json.load(f)
-
-        # # make dataset
-        # for gloss_entry in content:
-        #     gloss, instances = gloss_entry['gloss'], gloss_entry['instances']
-        #     gloss_cat = utils.labels2cat(self.label_encoder, [gloss])[0]
-
-        #     for instance in instances:
-        #         # if instance['split'] not in split:
-        #         #     continue
-        #         # if instance['video_id']  in arr:
-        #         #     continue
-        #         # print(instance['video_id'])
-                
-        #         if instance['split'] not in split or instance['video_id'] not in arr:
-        #             continue
-            
-
-        #         frame_end = instance['frame_end']
-        #         frame_start = instance['frame_start']
-        #         video_id = instance['video_id']
-
-        #         instance_entry = video_id, gloss_cat, frame_start, frame_end
-        #         self.data.append(instance_entry)
 
     
-    
-    
-    
-    
-    
-    
-    # def _load_poses(self, video_id, frame_start, frame_end, sample_strategy, num_samples):
     def _load_poses(self, video_id):
         
         """ Load frames of a video. Start and end indices are provided just to avoid listing and sorting the directory unnecessarily.
@@ -164,72 +118,6 @@ def sequential_sampling(frame_start, frame_end, num_samples):
     """Keep sequentially ${num_samples} frames from the whole video sequence by uniformly skipping frames."""
     num_frames = frame_end - frame_start + 1
 
-        # # # # #         frame_end = poses.shape[0]            
-            
-        # # # # #     if sample_strategy == 'rnd_start':
-        # # # # #         frames_to_sample = rand_start_sampling(frame_start, frame_end, num_samples)
-        # # # # #     elif sample_strategy == 'seq':
-        # # # # #         frames_to_sample = seq_sampler2(frame_start, frame_end, num_samples)
-        # # # # #     # elif sample_strategy == 'k_copies':
-        # # # # #     #     frames_to_sample = k_copies_fixed_length_sequential_sampling(frame_start, frame_end, num_samples,
-        # # # # #     #                                                                 self.num_copies)
-            
-        # # # # #     else:
-        # # # # #         raise NotImplementedError('Unimplemented sample strategy found: {}.'.format(sample_strategy))
-        # # # # #     # print(len(frames_to_sample))
-        # # # # #     # print(frames_to_sample)
-        # # # # #     poses = poses[frames_to_sample]
-        # # # # #     poses = torch.from_numpy(poses)
-            
-        # # # # #     # print(poses.shape)
-        # # # # #     if len(poses) < num_samples:
-        # # # # #         num_padding = num_samples - len(frames_to_sample)
-        # # # # #         last_pose = poses[-1]
-        # # # # #         # print(last_pose)
-                
-        # # # # #         # pad = last_pose.repeat(1, num_padding)
-        # # # # #         pad = last_pose.repeat(num_padding ,1)
-        # # # # #         # print(pad.shape)
-
-        # # # # #     if pad is not None:             
-        # # # # #         # print(pad.shape)
-        # # # # #         poses_across_time = torch.cat([poses,pad])
-        # # # # #         # print(poses_across_time.shape)
-        # # # # #         # print(poses_across_time.shape)
-
-        # # # # #     # for i in frames_to_sample:
-        # # # # #     #     pose_path = os.path.join(self.pose_root, video_id, self.framename.format(str(i).zfill(5)))
-        # # # # #     #     # pose = cv2.imread(frame_path, cv2.COLOR_BGR2RGB)
-        # # # # #     #     pose = read_pose_file(pose_path)
-
-        # # # # #     #     if pose is not None:
-        # # # # #     #         if self.img_transforms:
-        # # # # #     #             pose = self.img_transforms(pose)
-
-        # # # # #     #         poses.append(pose)
-        # # # # #     #     else:
-        # # # # #     #         try:
-        # # # # #     #             poses.append(poses[-1])
-        # # # # #     #         except IndexError:
-        # # # # #     #             print(pose_path)
-            
-
-        # # # # #     # pad = None
-            
-
-        # # # # #     # if len(frames_to_sample) < num_samples:
-        # # # # #     # if len(poses) < num_samples:
-        # # # # #     #     num_padding = num_samples - len(frames_to_sample)
-        # # # # #     #     last_pose = poses[-1]
-        # # # # #     #     pad = last_pose.repeat(1, num_padding)
-
-        # # # # #     # poses_across_time = torch.cat(poses, dim=1)
-        # # # # #     # if pad is not None:
-        # # # # #     #     poses_across_time = torch.cat([poses_across_time, pad], dim=1)
-        # # # # #     if  num_samples <=len(poses):
-        # # # # #         poses_across_time = poses
-                
-        # # # # # return poses_across_time
 
 def sequential_sampling(frame_start, frame_end, num_samples):
     """Keep sequentially ${num_samples} frames from the whole video sequence by uniformly skipping frames."""
@@ -364,52 +252,6 @@ if __name__ == '__main__':
 
 
 
-
-
-
-
-
-
-    # arr = os.listdir("argentin_keypoints")
-    # # # arr = [i[0:5] for i in arr]
-    # arr = [(i[0:11] ,i[0:3]) for i in arr]
-    # # print(arr[2][0]) 
-    
-    # # # # # # # a =np.load("argentin_keypoints/001_001_001.npy")
-    # # # # # # # # print(a.shape)
-    # l =[]
-    # arr = os.listdir("argentin_keypoints")
-    # for mot in tqdm(arr):
-    #     eo = np.load("argentin_keypoints/{}".format(mot))
-    #     # print("shape : {}".format(eo.shape))
-    #     # print(eo.shape[0])
-    #     # e =seq_sampler2(0,eo.shape[0] , 51)
-    #     l.append(eo.shape[0])
-    #     # print("length of e  : {}".format(len(e)))
-    #     # print("e  : {}".format(e))
-    #     # # print(e)
-    # print(min(l) ,max(l))
-        
-        
-    # # seq_sampler(0,120 ,50)
-    # # seq_sampler2(0,120 ,50)
-    # # seq_sampler2(0,120 ,50)
-    # # seq_sampler2(0,50 ,50)
-    
-    
-    # # print(random.randrange(0,120))
-    # # print (random.sample(range(0, 120), 10)  )
-    
-        
-        
-    #     # sequential_sampling(0 ,)
-        
-    #     # if len(eo.shape) == 1:
-    #     #     print(eo.shape ,  mot)
-            
-    # # arr = [i[0:5] for i in arr]
-    # # arr = [(i[0:11] ,i[0:3]) for i in arr]
-    # # print(arr[2][0]) 
     
     
     
