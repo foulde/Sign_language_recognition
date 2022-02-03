@@ -9,5 +9,6 @@ This model as been trained on the LSA64 Dataset: A Dataset for Argentinian Sign 
 [LSA64_PAGE](http://facundoq.github.io/datasets/lsa64/)
 
 
-## Requirement 
+## Keypoints à telecharger 
+
 
