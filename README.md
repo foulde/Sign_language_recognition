@@ -10,5 +10,6 @@ This model as been trained on the LSA64 Dataset: A Dataset for Argentinian Sign 
 
 
 ## Keypoints à telecharger 
+[Keypoints_extraits](https://drive.google.com/drive/folders/1vIBWrytrfu52FoApWQrswVp5u9Zz_e_Q?usp=sharing)
 
 
