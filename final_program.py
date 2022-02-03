@@ -2,7 +2,7 @@ import mediapipe as mp
 import numpy as np 
 import cv2
 # from torch._C import Stream, float32
-from model_argentin import SLRGRU , test 
+from model_SLR import SLRGRU , test 
 import torch
 PATH1 = "model_e{EPOCHS}.pth"
 
