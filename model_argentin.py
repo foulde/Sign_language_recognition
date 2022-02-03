@@ -310,8 +310,7 @@ def test(testloader , model):
 
 if __name__ == '__main__':
     
-    full_dataset = SIGN_dataset(index_file_path='/home/user/Documents/projet/floderwlasl/WLASL/data/splits/asl100.json', 
-                           split=['train','val'], pose_root="video__landmarks",img_transforms=None, video_transforms=None, num_samples= 50)
+    full_dataset = SIGN_dataset(split=['train','val'], pose_root="video__landmarks",img_transforms=None, video_transforms=None, num_samples= 50)
     train_size = int(0.8 * len(full_dataset))
     test_size = len(full_dataset) - train_size
     train_dataset, test_dataset = torch.utils.data.random_split(full_dataset, [train_size, test_size])
