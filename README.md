@@ -1,5 +1,8 @@
 # Sign_language_recognition
 sign language recognition project
+This is my first deep learning project.
+The goal of this model is to classify sign languages from the [LSA64_PAGE](http://facundoq.github.io/datasets/lsa64/).
+
 
 To test this project use the following command 
 ```bash
